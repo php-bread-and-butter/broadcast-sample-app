@@ -50,13 +50,16 @@
   const updateBanner = function (status) {
     const banner = document.getElementById('banner');
     const bannerText = document.getElementById('bannerText');
+    const videoContainer = document.getElementById('videoContainer');
 
     if (status === 'active') {
       banner.classList.add('hidden');
+      videoContainer.classList.add('active');
     } else if (status === 'ended') {
       bannerText.classList.add('red');
       bannerText.innerHTML = 'The Broadcast is Over';
       banner.classList.remove('hidden');
+      videoContainer.classList.remove('active');
     }
   };
 

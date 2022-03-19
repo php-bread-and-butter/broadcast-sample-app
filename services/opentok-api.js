@@ -1,6 +1,6 @@
 'use strict';
 
-const { apiKey, apiSecret } = require('../config');
+const { apiKey, apiSecret, base_url } = require('../config');
 
 const OpenTok = require('opentok');
 const OT = new OpenTok(apiKey, apiSecret);
@@ -124,7 +124,7 @@ const getCredentials = async (userType) => {
       }
     }
     const token = createToken(userType);
-    resolve({ apiKey, sessionId: activeSession.sessionId, token });
+    resolve({ apiKey, sessionId: activeSession.sessionId, token, base_url });
   });
 }
 

@@ -4,10 +4,87 @@
 <head>
   <%- include('../partials/head') %>
   <script src="js/viewer.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="css/style_creator.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 
 <body>
+  
   <div id="credentials" style="display:none;" data="<%= credentials %>"></div>
+  
+  <header>
+    
+       <div class="desktop-header creator-header">
+        <div class="container">
+          <div class="row align-items-center">
+            
+            <div class="col-md-6">
+              <div class="logo">
+                <h1>
+                  <a href="<%= base_url %>">
+                    <img src="<%= base_url %>content/icon/tree.png" alt="logo">
+                  </a>
+                </h1>
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <div class="social-icons">
+                <ul>
+                  <li>
+                    <a href="<%= base_url %>">
+                      <img src="<%= base_url %>content/icon/house1.svg" alt="Content-Creator">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="<%= base_url %>">
+                      <img src="<%= base_url %>content/icon/chat.svg" alt="Content-Creator">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="<%= base_url %>">
+                      <img src="<%= base_url %>content/icon/bell-empty.svg" alt="Content-Creator">
+                    </a>
+                  </li>
+                  <li class="person">
+                    <a href="<%= base_url %>" data-toggle="dropdown">
+                      <img src="<%= base_url %>content/icon/user-empty.svg" alt="Content-Creator">          
+                    </a>
+                    <div class="dropdown-menu"></div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       <div class="mobile-header">
+        <div class="mobile-padding">
+          <div class="row align-items-center">
+            <div class="col-sm-6 col-10">
+              <div class="logo mob-logo">
+                <h1>
+                  <a href="<%= base_url %>">
+                    <img src="<%= base_url %>content/icon/tree.png" alt="logo">
+                  </a>
+                </h1>
+              </div>
+            </div>
+            <div class="col-sm-6 col-2 text-right">
+              <div class="search">
+                <a href="<%= base_url %>"><img src="<%= base_url %>content/icon/search.svg" alt="img"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+
+
+  </header>
+
+
+  <p></p>
+
   <div id="main" class="main-container">
     <div id="banner" class="banner">
       <span id="bannerText" class="text">Waiting for Broadcast to Begin</span>
@@ -16,6 +93,41 @@
       <div id="hostDivider" class="hidden"></div>
     </div>
   </div>
+
+      <footer class="footer">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-auto m-auto ml-md-auto">
+          <div class="row align-items-center">
+            <div class="col-auto">
+              <ul class="list-inline list-inline-dots mb-2 text-center">      
+                  <li class="list-inline-item">
+                    <a href="<%= base_url %>viewer/pages/refund-cancellation-policy">Refund and Cancelation Policy</a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="<%= base_url %>viewer/pages/terms-conditions">Terms and Conditions</a>                            
+                  </li>
+                  <li class="list-inline-item">
+                      <a href="<%= base_url %>viewer/pages/privacy-policy">Privacy Policy</a>                            
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="<%= base_url %>viewer/pages/cookie-policy">18 U.S.C. 22570 Record-Keeping Requirements Compliance Statement</a>                            
+                  </li>
+                  </ul>
+                        
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mob-plus" data-toggle="modal" data-target="#myModal1">
+            <div class="plus1">
+                <a href="<%= base_url %>"><img src="<%= base_url %>content/icon/plus-mob.png" alt="img"></a>
+            </div>
+        </div>
+    </footer>
+
+
 </body>
 
 </html>

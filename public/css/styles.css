@@ -23,10 +23,12 @@ body {
 
 .video-container {
     width: 100%;
-    height: 100%;
     display: flex;
     justify-content: space-around;
+}
 
+.video-container.active{
+    height: 100%;
 }
 
 .video-container.wrap {
@@ -312,10 +314,33 @@ body {
     transition: all .5s ease-out;
 }
 
+button.btn-broadcast{
+    border: 1px solid transparent;
+    text-align: center;
+    /* width: 100%; */
+    background: #f44336;
+    border-radius: 30px;
+    padding: 12px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-top: 30px;
+    transition: all 0.3s;
+    /* font-size: 22px; */
+    cursor: pointer;
+    border: 1px solid #f44336;
+    font-family: 'SegoeUI-Normal';
+    box-shadow: 0 0 0 1px #f44336;
+}
+
 .btn-broadcast:hover {
+/*  background-color: #007ba3;
+    box-shadow: 0 0 0 2px #f44336*/
+    color: #f44336 !important;
+    background: #fff;
+    border-color: #f44336;
     text-decoration: none;
-    background-color: #007ba3;
-    box-shadow: 0 0 0 2px #0099cc
 }
 
 .btn-broadcast.active {

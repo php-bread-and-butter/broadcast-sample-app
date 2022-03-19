@@ -98,6 +98,7 @@
       if (broadcast.rtmp) {
         rtmpActive.classList.remove('hidden');
       }
+      send_notifications();
     } else {
       startStopButton.classList.remove('active');
       startStopButton.innerHTML = 'Broadcast Over';
@@ -421,3 +422,51 @@
 
   document.addEventListener('DOMContentLoaded', init);
 }());
+
+
+/*
+* Send notifications to subscribers about new broadcasting video
+*/
+function send_notifications(){
+
+    // var xmlhttp = new XMLHttpRequest();
+
+    // xmlhttp.onreadystatechange = function() {
+    //     if (xmlhttp.readyState == XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE == 4
+    //        if (xmlhttp.status == 200) {
+    //            //document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+    //        }
+    //        else if (xmlhttp.status == 400) {
+    //            console.log('There was an error 400');
+    //        }
+    //        else {
+    //            console.log('something else other than 200 was returned');
+    //        }
+    //     }
+    // };
+
+    // xmlhttp.open("GET", "https://stack.brstdev.com/shore-thang/test/test", true);
+    // xmlhttp.responseType = 'jsonp';
+    // xmlhttp.send();
+
+    //Fetch creator-id
+    let creatorId = parseInt( document.getElementById('creator_id').value );    
+
+    jsonp('https://shorethang.com/streaming-notification/send?creator_id='+creatorId, function(data) {
+       console.log(data);
+    });
+
+}
+
+function jsonp(url, callback) {
+    var callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
+    window[callbackName] = function(data) {
+        delete window[callbackName];
+        document.body.removeChild(script);
+        callback(data);
+    };
+
+    var script = document.createElement('script');
+    script.src = url + (url.indexOf('?') >= 0 ? '&' : '?') + 'callback=' + callbackName;
+    document.body.appendChild(script);
+}
